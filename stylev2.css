@@ -245,24 +245,28 @@ body {
     }
 
     .modal-text {
-        padding: 20px;
+        padding: 10px 20px;
         display: flex;
         flex-direction: column;
-        height: 35%;
+        height: 30%;
         justify-content: space-between;
     }
 
     .modal-name {
-        font-size: 28px;
+        font-size: 26px;
         font-weight: bold;
     }
 
     .modal-price {
-        font-size: 22px;
+        font-size: 20px;
     }
 
     .modal-description {
-        font-size: 22px;
+        font-size: 20px;
+    }
+
+    .item-quantity {
+        height: 50px;
     }
 
 
@@ -347,6 +351,7 @@ body {
         width: 100%;
         padding: 10px;
         font-size: 22px;
+        height: 50px;
         /* font-weight: bold; */
         background-color: #464451;
         color: #F5F5F5;
@@ -356,8 +361,10 @@ body {
 
     .modal-buttons {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
+        align-items: center;
         padding: 0 20px;
+        height: 100px;
     }
     
     .footer {
