@@ -1,0 +1,41 @@
+const categoryContainer = document.querySelector('#category-container')
+const category = document.querySelectorAll('#cat')
+
+categoryContainer.addEventListener('click', event => {
+    unsetButtons(categoryContainer)
+    event.target.classList.toggle('active')
+    scrollToActive(categoryContainer, event.target)
+})
+
+window.addEventListener('scroll', () => {
+    category.forEach(cat => {
+        let rect = cat.getBoundingClientRect()
+        let isVisible = (rect.top >= 0 && rect.bottom <= window.innerHeight)
+        if (isVisible) {
+            let button = unsetButtons(categoryContainer)[cat.dataset.num - 1]
+            button.classList.toggle('active')
+            scrollToActive(categoryContainer, button)
+        }
+    })
+})
+
+function unsetButtons(buttonContainer) {
+    let children = buttonContainer.children
+    children = Array.prototype.slice.call(children)
+    children.forEach(node => {
+        if (node.classList.contains('active')) {
+            node.classList.remove('active')
+        }
+    })
+    return children
+}
+
+function scrollToActive(buttonContainer, activeButton) {
+    const categoryContainerRect = buttonContainer.getBoundingClientRect()
+    const activeRect = activeButton.getBoundingClientRect()
+    const navItemsLeft = activeRect.left - categoryContainerRect.left + (activeRect.width - categoryContainerRect.width) / 2
+    buttonContainer.scrollTo({
+        left: buttonContainer.scrollLeft + navItemsLeft,
+        behavior: 'smooth'
+    });
+}
