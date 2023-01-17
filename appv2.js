@@ -1,5 +1,9 @@
 const categoryContainer = document.querySelector('#category-container')
 const category = document.querySelectorAll('#cat')
+const quantityCounter = document.querySelectorAll('#quantity')
+const items = document.querySelectorAll('#item')
+const modal = document.querySelector('#modal')
+const backdrop = document.querySelector('#backdrop')
 
 categoryContainer.addEventListener('click', event => {
     unsetButtons(categoryContainer)
@@ -24,6 +28,28 @@ window.addEventListener('scroll', () => {
             scrollToActive(categoryContainer, button)
         }
     })
+})
+
+quantityCounter.forEach(el => {
+    el.addEventListener('click', (event) => {
+        let current = Number(el.querySelector('input').value)
+        if (event.target.dataset.type === 'plus') {
+            el.querySelector('input').value = String(current + 1)
+        }
+        if (event.target.dataset.type === 'minus' && current > 0) {
+            el.querySelector('input').value = String(current - 1)
+        }
+    })
+})
+
+items.forEach(item => {
+    item.addEventListener('click', () => {
+        modal.classList.add('open')
+    })
+})
+
+backdrop.addEventListener('click', () => {
+    modal.classList.remove('open')
 })
 
 function unsetButtons(buttonContainer) {
