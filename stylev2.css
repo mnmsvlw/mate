@@ -147,8 +147,10 @@ body {
     }
 
     .category-field.active {
-        background-color: #c8c4c4;
-        color: #29282f;
+        /* background-color: #c8c4c4; */
+        /* color: #29282f; */
+        background-color: #464451;
+        color: #F5F5F5;
         font-weight: bold;
     }
     
