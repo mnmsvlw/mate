@@ -5,12 +5,19 @@ categoryContainer.addEventListener('click', event => {
     unsetButtons(categoryContainer)
     event.target.classList.toggle('active')
     scrollToActive(categoryContainer, event.target)
+    let scrollTarget = document.querySelector(`[name="${event.target.dataset.cat}"]`)
+    console.log(scrollTarget)
+    window.scrollBy({
+        top: scrollTarget.getBoundingClientRect().top - 90,
+        behavior: 'smooth'
+    })
+    // scrollTarget.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"})
 })
 
 window.addEventListener('scroll', () => {
     category.forEach(cat => {
         let rect = cat.getBoundingClientRect()
-        let isVisible = (rect.top >= 0 && rect.bottom <= window.innerHeight)
+        let isVisible = (rect.top >= -150 && rect.bottom <= window.innerHeight + 150)
         if (isVisible) {
             let button = unsetButtons(categoryContainer)[cat.dataset.num - 1]
             button.classList.toggle('active')
