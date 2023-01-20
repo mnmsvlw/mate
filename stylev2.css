@@ -15,10 +15,12 @@ body {
     flex-direction: column;
     justify-content: center;
     position: relative;
-    padding: 8vh 0;
+    padding: 8vh 0 0 0;
+    background-color: #E6E6E6;
 }
 
-.header {
+
+.nav {
     background-color: #E6E6E6;
     height: 8vh;
     position: fixed;
@@ -83,9 +85,9 @@ body {
     color: #F5F5F5;
 } */
 
-.nav {
+/* .nav {
     height: 100%;
-}
+} */
 
 .desktop-header-container{
     height: 100%;
@@ -591,6 +593,18 @@ body {
 
 
 @media only screen and (max-width: 786px) {
+
+    .header {
+        background-color: #E6E6E6;
+        height: 8vh;
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        font-size: 24px;
+        z-index: 10;
+        transition: 0.5s top;
+    }
 
     .main {
         padding: 5vh 0;
