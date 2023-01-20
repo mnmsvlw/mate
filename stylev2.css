@@ -572,6 +572,15 @@ body {
         padding: 0 20px;
         height: 100px;
     }
+
+    .add-to-cart-wrapper {
+        cursor: pointer;
+        transition: .5s background-color;
+    }
+
+    .add-to-cart-wrapper:hover {
+        background-color: #29282f;
+    }
 }
 
 @media only screen and (max-width: 1200px) {
@@ -865,5 +874,18 @@ body {
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+}
+
+@media screen and (min-width: 480px) and (max-width:600px) {
+    .modal {
+        top: 150px;
+    }
+}
+
+@media screen and (min-width: 601px) and (max-width:786px) {
+
+    .modal {
+        top: 50px;
     }
 }
