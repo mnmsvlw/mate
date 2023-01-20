@@ -5,6 +5,7 @@ const quantityCounter = document.querySelectorAll('#quantity')
 const items = document.querySelectorAll('#item')
 const modal = document.querySelector('#modal')
 const backdrop = document.querySelector('#backdrop')
+const nav = document.querySelector('#nav')
 
 setScroll(categoryContainer)
 setScroll(desktopCategoryContainer)
@@ -33,7 +34,7 @@ setScroll(desktopCategoryContainer)
 //         behavior: 'smooth'
 //     })
 // })
-
+let prevScrollPos = window.pageYOffset
 window.addEventListener('scroll', () => {
     category.forEach(cat => {
         let rect = cat.getBoundingClientRect()
@@ -51,6 +52,13 @@ window.addEventListener('scroll', () => {
             // scrollToActive(categoryContainer, buttonDesc)
         }
     })
+    let currentScrollPos = window.pageYOffset
+    if (prevScrollPos > currentScrollPos) {
+        nav.style.top = '0'
+    } else {
+        nav.style.top = '-100px'
+    }
+    prevScrollPos = currentScrollPos
 })
 
 quantityCounter.forEach(el => {
