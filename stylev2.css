@@ -894,9 +894,13 @@ body {
         border-right: none;
     }
 
+    .nav-item.cart-nav {
+        position: relative;
+    }
+
     .nav-logo.cart-nav {
-        -webkit-mask: url(assets/img/cart-shopping-solid.svg) no-repeat center;
-        mask: url(assets/img/cart-shopping-solid.svg) no-repeat center;
+        -webkit-mask: url(assets/img/bag-shopping-solid.svg) no-repeat center;
+        mask: url(assets/img/bag-shopping-solid.svg) no-repeat center;
     }
 
     .nav-item {
@@ -922,6 +926,24 @@ body {
     .footer-container {
         align-items: baseline;
         padding: 2% 3%;
+    }
+
+    .cart-counter {
+        width: 15px;
+        height: 15px;
+        background-color: #E6E6E6;
+        border-radius: 50%;
+        position: absolute;
+        top: 20%;
+        right: 34%;
+        z-index: 12;
+        font-size: 11px;
+        color: #464451;
+        text-align: center;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
 }
