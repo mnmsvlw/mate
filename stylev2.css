@@ -342,7 +342,7 @@ body {
 
     .cart-desktop-button {
         height: 50px;
-        width: 97%;
+        width: 100%;
         border-radius: 10px;
         border: 1px solid #c8c4c4;
         padding: 10px 0;
@@ -351,11 +351,11 @@ body {
         justify-content: space-between;
         align-items: center;
         padding: 0 10px;
-        transition: .5s background-color, .5s height, .5s width;
+        transition: .5s background-color;
     }
 
     .cart-desktop-button:hover {
-        height: 53px;
+        height: 50px;
         width: 100%;
         cursor: pointer;
         background-color: #29282f;
@@ -620,10 +620,11 @@ body {
 
     .items {
         min-width: 70%;
-        margin-top: -450px;
+        margin-top: -55vh;
     }
 
     .cart {
+        top: 50px;
         min-width: 30%;
     }
 
@@ -637,7 +638,7 @@ body {
     }
 
     .cart-background {
-        height: 400px;
+        height: 50vh;
         border: 1px solid #c8c4c4;
         border-radius: 10px;
         margin-bottom: 50px;
@@ -760,7 +761,7 @@ body {
         bottom: 0;
         left: 0;
         right: 0;
-        top: 250px;
+        top: calc(80vh - 100vw);
         background-color: #E6E6E6;
         border-top-left-radius: 30px;
         border-top-right-radius: 30px;
@@ -905,7 +906,7 @@ body {
         margin-left: 10px;
         width: 100%;
         padding: 10px;
-        font-size: 22px;
+        font-size: 18px;
         height: 50px;
         /* font-weight: bold; */
         background-color: #464451;
@@ -982,14 +983,18 @@ body {
         padding: 2% 3%;
     }
 
+    .cart-nav {
+        position: relative;
+    }
+
     .cart-counter {
         width: 15px;
         height: 15px;
         background-color: #E6E6E6;
         border-radius: 50%;
         position: absolute;
-        top: 20%;
-        right: 34%;
+        top: 9px;
+        left: 16px;
         z-index: 12;
         font-size: 11px;
         color: #464451;
@@ -1000,11 +1005,26 @@ body {
         align-items: center;
     }
 
+    .nav-item:hover .nav-text {
+        transform: none;
+        width: auto;
+    }
+    
+    .nav-item.history:hover .nav-text {
+        transform: none;
+        width: auto;
+    }
+    
+    .nav-item.exit:hover .nav-text {
+        transform: none;
+        width: auto;
+    }
+
 }
 
 @media screen and (min-width: 480px) and (max-width:600px) {
     .modal {
-        top: 150px;
+        top: calc(90vh-100vw);
     }
 }
 

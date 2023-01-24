@@ -10,46 +10,17 @@ const nav = document.querySelector('#nav')
 setScroll(categoryContainer)
 setScroll(desktopCategoryContainer)
 
-// categoryContainer.addEventListener('click', event => {
-//     unsetButtons(categoryContainer)
-//     event.target.classList.toggle('active')
-//     scrollToActive(categoryContainer, event.target)
-//     let scrollTarget = document.querySelector(`[name="${event.target.dataset.cat}"]`)
-//     console.log(scrollTarget)
-//     window.scrollBy({
-//         top: scrollTarget.getBoundingClientRect().top - 90,
-//         behavior: 'smooth'
-//     })
-//     // scrollTarget.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"})
-// })
-
-// desktopCategoryContainer.addEventListener('click', event => {
-//     unsetButtons(desktopCategoryContainer)
-//     event.target.classList.toggle('active')
-//     scrollToActive(desktopCategoryContainer, event.target)
-//     let scrollTarget = document.querySelector(`[name="${event.target.dataset.cat}"]`)
-//     console.log(scrollTarget)
-//     window.scrollBy({
-//         top: scrollTarget.getBoundingClientRect().top - 90,
-//         behavior: 'smooth'
-//     })
-// })
 let prevScrollPos = window.pageYOffset
 window.addEventListener('scroll', () => {
     category.forEach(cat => {
         let rect = cat.getBoundingClientRect()
-        console.log(rect, cat)
         let isVisible = (rect.top >= -550 && rect.bottom <= window.innerHeight + 550)
-        console.log(isVisible)
-        console.log(window.innerHeight)
         if (isVisible) {
             let button = unsetButtons(categoryContainer)[cat.dataset.num - 1]
             let buttonDesc = unsetButtons(desktopCategoryContainer)[cat.dataset.num - 1]
-            console.log(`До ${cat.dataset.num - 1}`)
             button.classList.toggle('active')
             buttonDesc.classList.toggle('active')
             scrollToActive(categoryContainer, button)
-            // scrollToActive(categoryContainer, buttonDesc)
         }
     })
     let currentScrollPos = window.pageYOffset
@@ -75,6 +46,7 @@ quantityCounter.forEach(el => {
 
 items.forEach(item => {
     item.addEventListener('click', () => {
+        modal.querySelector('#modal-text').innerHTML = renderModal(item)
         modal.classList.add('open')
     })
 })
@@ -82,6 +54,18 @@ items.forEach(item => {
 backdrop.addEventListener('click', () => {
     modal.classList.remove('open')
 })
+
+function renderModal(item) {
+    const name = item.querySelector('#item-name')
+    const description = item.querySelector('#item-description')
+    const price = item.querySelector('#item-price')
+
+    return `
+            <div class="modal-name">${name.innerHTML}</div>
+            <div class="modal-price">${price.innerHTML}</div>
+            <div class="modal-description">${description.innerHTML}</div>
+            `
+}
 
 function unsetButtons(buttonContainer) {
     let children = buttonContainer.children
@@ -110,7 +94,6 @@ function setScroll(buttonContainer) {
         event.target.classList.toggle('active')
         scrollToActive(buttonContainer, event.target)
         let scrollTarget = document.querySelector(`[name="${event.target.dataset.cat}"]`)
-        console.log(scrollTarget)
         window.scrollBy({
             top: scrollTarget.getBoundingClientRect().top - 90,
             behavior: 'smooth'
